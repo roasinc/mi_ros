@@ -26,3 +26,11 @@ cd ~/catkn_ws
 rosdep install --from-paths src --ignore-src -y
 catkin_make
 ```
+
+Udev Setup
+----------
+
+```
+roscd mi_ros/rulse
+sudo cp 41-mi.rules /etc/udev/rules.d
+```
