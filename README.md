@@ -12,7 +12,7 @@ ROS Interface
 | Topic Name   | Type                             | Description             |
 |--------------|----------------------------------|-------------------------|
 | ``imu/data`` | ``sensor_msgs/Imu``              | IMU values              |
-| ``imu/rpy``  | ``geometry_msgs/Vector3Stamped`` | Roll. Pitch, Yaw values |
+| ``imu/rpy``  | ``geometry_msgs/Vector3Stamped`` | Roll, Pitch, Yaw values |
 
 | Service Name  | Type             | Description      |
 |---------------|------------------|------------------|
