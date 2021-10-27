@@ -112,12 +112,16 @@ void MiDriver::read()
 
 bool MiDriver::reset(mi_ros::Reset::Request& req, mi_ros::Reset::Response& resp)
 {
-  if (req.reset = true)
+  if (req.reset == true)
   {
     stringstream msg;
     msg << RESET << "\r";
     serial_.write(msg.str());
+
+    resp.result = true;
   }
+  else
+    resp.result = false;
 
   return true;
 }
