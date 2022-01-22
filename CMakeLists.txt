@@ -8,23 +8,14 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   geometry_msgs
   sensor_msgs
+  std_srvs
   serial 
   realtime_tools
-)
-
-add_service_files(
-  FILES
-  Reset.srv
-)
-
-generate_messages(DEPENDENCIES
-  std_msgs
 )
 
 catkin_package(
   INCLUDE_DIRS include
   CATKIN_DEPENDS
-  message_runtime
 )
 
 include_directories(
@@ -39,12 +30,12 @@ add_dependencies(mi_driver_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXP
 target_link_libraries(mi_driver_node ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 
 install(
-  DIRECTORY launch rules srv
+  DIRECTORY launch rules
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
 install(
-  DIRECTORY include/${PROJECT_NAME}/
+  DIRECTORY include/${PROJECT_NAME}
    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
 

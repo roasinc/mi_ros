@@ -40,8 +40,9 @@ THE POSSIBILITY OF SUCH DAMAGE.
 #include "realtime_tools/realtime_publisher.h"
 #include "geometry_msgs/Vector3Stamped.h"
 #include "sensor_msgs/Imu.h"
+#include "std_srvs/Trigger.h"
+
 #include "mi_ros/parser.h"
-#include "mi_ros/Reset.h"
 
 using namespace std;
 
@@ -67,7 +68,7 @@ public:
    * \param req Request
    * \param resp Response
    */
-  bool reset(mi_ros::Reset::Request& req, mi_ros::Reset::Response& resp);
+  bool reset(std_srvs::Trigger::Request& req, std_srvs::Trigger::Response& resp);
 
   /**
    * \brief Publish IMU sensor data

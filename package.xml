@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>mi_ros</name>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
   <description>
-    This packages provices the driver for MICROINFINITY XG6000 IMU sensor.
+    The driver package for MICROINFINITY XG6000 IMU sensor.
   </description>
   <maintainer email="shlee@roas.co.kr">Brighten Lee</maintainer>
   <license>BSD</license>
@@ -12,10 +12,9 @@
 
   <depend>roscpp</depend>
   <depend>tf</depend>
-  <depend>message_generation</depend>
-  <depend>message_runtime</depend>
   <depend>geometry_msgs</depend>
   <depend>sensor_msgs</depend>
+  <depend>std_srvs</depend>
   <depend>serial</depend>
   <depend>realtime_tools</depend>
 </package>

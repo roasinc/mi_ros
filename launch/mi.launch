@@ -3,8 +3,8 @@
 
   <!-- MICROINFINITY XG6000 Driver -->
   <node pkg="mi_ros" type="mi_driver_node" name="mi_driver_node" output="screen">
-    <param name="port" value="/dev/ttyUSB0"/>
-    <param name="frame_id" value="imu_link"/>
+    <param name="port" value="/dev/ttyUSB0" />
+    <param name="frame_id" value="imu_link" />
   </node>
 
 </launch>

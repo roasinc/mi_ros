@@ -67,6 +67,9 @@ bool MiDriver::init()
 
   rp_imu_.init(nh_, "data", 1);
   rp_imu_.msg_.header.frame_id = frame_id_;
+  rp_imu_.msg_.orientation_covariance = { 0.01, 0.0, 0.0, 0.0, 0.01, 0.0, 0.0, 0.0, 0.01 };
+  rp_imu_.msg_.angular_velocity_covariance = { 0.01, 0.0, 0.0, 0.0, 0.01, 0.0, 0.0, 0.0, 0.01 };
+  rp_imu_.msg_.linear_acceleration_covariance = { 0.01, 0.0, 0.0, 0.0, 0.01, 0.0, 0.0, 0.0, 0.01 };
 
   // Initial setting for serial communication
   serial_.setPort(port_);
@@ -80,7 +83,7 @@ bool MiDriver::init()
   }
   catch (serial::IOException& e)
   {
-    // ROS_ERROR_STREAM_ONCE("Serial " << e.what());
+    ROS_ERROR_STREAM_ONCE("Serial " << e.what());
   }
 
   // Check the serial port
@@ -104,24 +107,15 @@ void MiDriver::read()
     serial_.read(buffer, BUFFER_SIZE);
     for (int8_t i = 0; i < BUFFER_SIZE; i++)
       parse(buffer[i]);
-
-    // for (int8_t i = 0; i < BUFFER_SIZE; i++)
-    //  ROS_INFO("Message[%d]: [0x%02x]", i, buffer[i]);
   }
 }
 
-bool MiDriver::reset(mi_ros::Reset::Request& req, mi_ros::Reset::Response& resp)
+bool MiDriver::reset(std_srvs::Trigger::Request& req, std_srvs::Trigger::Response& resp)
 {
-  if (req.reset == true)
-  {
-    stringstream msg;
-    msg << RESET << "\r";
-    serial_.write(msg.str());
-
-    resp.result = true;
-  }
-  else
-    resp.result = false;
+  stringstream msg;
+  msg << RESET << "\r";
+  serial_.write(msg.str());
+  resp.success = true;
 
   return true;
 }
