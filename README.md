@@ -23,6 +23,7 @@ Installation
 
 ```
 cd ~/catkin_ws/src/
+git clone https://github.com/wjwwood/serial.git
 git clone https://github.com/roasinc/mi_ros.git
 cd ~/catkn_ws/
 rosdep install --from-paths src --ignore-src -y
