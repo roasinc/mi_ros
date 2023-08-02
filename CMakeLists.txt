@@ -30,7 +30,7 @@ add_dependencies(mi_driver_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXP
 target_link_libraries(mi_driver_node ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 
 install(
-  DIRECTORY launch rules
+  DIRECTORY launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 

@@ -50,12 +50,3 @@ catkin_make
 sudo chmod 666 /dev/ttyUSB0
 roslaunch mi_ros mi.launch
 ```
-
-## Udev Setup
-
-```
-roscd mi_ros/rulse/
-sudo cp 41-mi.rules /etc/udev/rules.d/
-sudo udevadm control --reload-rules
-sudo udevadm trigger
-```
